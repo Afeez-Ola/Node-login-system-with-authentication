@@ -1,6 +1,9 @@
 // jshint esversion:6
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
+
+const User = require('../model/User');
 
 router.get('/register', (req, res) => {
     res.render('register');
@@ -52,7 +55,16 @@ router.post('/register', (req, res) => {
                         password,
                         password2
                     });
+                } else {
+                    const newUser = new User({
+                        name,
+                        email,
+                        password
+                    });
+                    console.log(newUser);
+                    res.send(`Hello ${name}`);
                 }
+
             });
     }
 });
