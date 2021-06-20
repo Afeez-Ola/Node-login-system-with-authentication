@@ -1,8 +1,12 @@
 // jshint esversion:6
 const express = require('express');
 const bodyParser = require('body-parser');
+const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
+
+app.use(expressLayouts);
+app.set('view engine', 'ejs');
 
 const indexRouter = require('./routes/index');
 const userPage = require('./routes/users');
