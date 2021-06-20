@@ -8,7 +8,7 @@ const indexRouter = require('./routes/index');
 const userPage = require('./routes/users');
 
 app.use('/', indexRouter);
-app.use('/user', userPage);
+app.use('/users', userPage);
 
 const PORT = process.env.PORT || 3000;
 
