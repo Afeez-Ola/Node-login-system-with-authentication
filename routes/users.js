@@ -41,7 +41,19 @@ router.post('/register', (req, res) => {
             password2
         });
     } else {
-        res.send('Passed');
+        User.findOne({ email: email })
+            .then(user => {
+                if (user) {
+                    errors.push({ msg: 'Email is already registered!' });
+                    res.render('register', {
+                        errors,
+                        name,
+                        email,
+                        password,
+                        password2
+                    });
+                }
+            });
     }
 });
 
