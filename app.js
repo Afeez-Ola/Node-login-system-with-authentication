@@ -5,6 +5,7 @@ const expressLayouts = require('express-ejs-layouts');
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
