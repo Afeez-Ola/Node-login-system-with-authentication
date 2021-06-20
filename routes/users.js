@@ -17,6 +17,12 @@ router.post('/register', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     const password2 = req.body.password2;
+
+    const errors = [];
+
+    if (!name || !email || !password || !password2) {
+        errors.push({ msg: 'Please fill in all field!' });
+    }
 });
 
 
