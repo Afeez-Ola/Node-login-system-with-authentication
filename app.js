@@ -3,10 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
-
+const dotenv = require('dotenv')
+   
 const app = express();
-
-require('dotenv').config()
+ dotenv.config()
 
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
