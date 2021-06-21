@@ -65,6 +65,9 @@ router.post('/register', (req, res) => {
                     res.send(`Hello ${name}`);
                 }
 
+                // Hashing password
+
+
             });
     }
 });
