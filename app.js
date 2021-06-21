@@ -7,18 +7,19 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
-const passport = require('passport-local');
+const passport = require('passport');
 
 
 const app = express();
 
-
+// require('../config/passport')(passport);
+require('./config/passport')(passport);
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 app.use(session({
-    secret: 'keyboard cat',
+    secret: 'secret',
     resave: true,
     saveUninitialized: true
 }));
