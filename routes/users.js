@@ -71,8 +71,15 @@ router.post('/register', (req, res) => {
                             newUser.password = hash;
 
                             newUser.save()
-                                .then(user => res.redirect('/users/login'))
-                                .catch(err => console.log(err));
+                                // req.flash('success_msg', 'You are now registered!')
+                                .then(user => {
+                                    req.flash('success_msg', 'You are now registered, and can log in');
+                                    res.redirect('/users/login')
+                                })
+                                .catch(err => {
+                                    req.flash('error_msg', 'You are not registered');
+                                    console.log(err)
+                                });
                         });
                     });
                 }
