@@ -12,7 +12,7 @@ const session = require('express-session');
 const app = express();
 
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
