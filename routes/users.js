@@ -17,12 +17,12 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    // console.log(req.body.name);
-    // const { name, email, password, password2 } = req.body;
-    const name = req.body.name;
-    const email = req.body.email;
-    const password = req.body.password;
-    const password2 = req.body.password2;
+
+    // const name = req.body.name;
+    // const email = req.body.email;
+    // const password = req.body.password;
+    // const password2 = req.body.password2;
+    const { name, email, password, password2 } = req.body;
 
     const errors = [];
 
@@ -93,7 +93,6 @@ router.post('/login', (req, res, next) => {
         successRedirect: '/dashboard',
         failureRedirect: '/users/login',
         failureFlash: true
-            // badRequestMessage: 'User account is not exist'
     })(req, res, next);
 });
 
