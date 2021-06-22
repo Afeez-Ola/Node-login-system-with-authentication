@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-require('./config/passport')(passport);
+
 const app = express();
 
 // require('../config/passport')(passport);
@@ -23,6 +23,8 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+
+require('./config/passport')(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());

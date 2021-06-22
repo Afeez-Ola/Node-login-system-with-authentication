@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
-require('./config/passport')(passport);
+require('../config/passport')(passport);
 
 const User = require('../model/User');
 
@@ -93,6 +93,7 @@ router.post('/login', (req, res, next) => {
         successRedirect: '/dashboard',
         failureRedirect: '/users/login',
         failureFlash: true
+            // badRequestMessage: 'User account is not exist'
     })(req, res, next);
 });
 
