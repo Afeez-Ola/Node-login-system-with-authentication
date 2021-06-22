@@ -9,10 +9,10 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
+// FINALLY DONE WITH THIS PROJECT FOR THE SECOND TIME,I HOPE TO DO THIS AGAIN IN A MONTH.
 
 const app = express();
 
-// require('../config/passport')(passport);
 require('./config/passport')(passport);
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
