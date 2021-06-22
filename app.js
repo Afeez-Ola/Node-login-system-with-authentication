@@ -13,7 +13,7 @@ const passport = require('passport');
 const app = express();
 
 // require('../config/passport')(passport);
-
+require('./config/passport')(passport);
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
@@ -23,8 +23,6 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
-require('./config/passport')(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());
