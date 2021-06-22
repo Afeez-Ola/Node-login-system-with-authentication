@@ -63,7 +63,6 @@ router.post('/register', (req, res) => {
                         password
                     });
                     console.log(newUser);
-                    // res.send(`Hello ${name}`);
                     // Hashing password
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
@@ -72,19 +71,17 @@ router.post('/register', (req, res) => {
                             newUser.password = hash;
 
                             newUser.save()
-                                // req.flash('success_msg', 'You are now registered!')
                                 .then(user => {
                                     req.flash('success_msg', 'You are now registered, and can log in');
                                     res.redirect('/users/login')
                                 })
                                 .catch(err => {
                                     req.flash('error_msg', 'You are not registered');
-                                    console.log(err)
+                                    console.log(err);
                                 });
                         });
                     });
                 }
-
 
 
             });
@@ -98,9 +95,6 @@ router.post('/login', (req, res, next) => {
         failureFlash: true
     })(req, res, next);
 });
-
-
-module.exports = router;
 
 
 module.exports = router;
