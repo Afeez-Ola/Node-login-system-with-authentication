@@ -4,6 +4,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 
+require('./config/passport')(passport);
+
 const User = require('../model/User');
 
 router.get('/register', (req, res) => {
@@ -82,8 +84,6 @@ router.post('/register', (req, res) => {
                         });
                     });
                 }
-
-
             });
     }
 });

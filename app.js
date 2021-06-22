@@ -9,11 +9,11 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 
-
+require('./config/passport')(passport);
 const app = express();
 
 // require('../config/passport')(passport);
-require('./config/passport')(passport);
+
 app.use(express.urlencoded({ extended: false }));
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
