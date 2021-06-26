@@ -17,11 +17,6 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-
-    // const name = req.body.name;
-    // const email = req.body.email;
-    // const password = req.body.password;
-    // const password2 = req.body.password2;
     const { name, email, password, password2 } = req.body;
 
     const errors = [];
@@ -75,11 +70,10 @@ router.post('/register', (req, res) => {
                             newUser.save()
                                 .then(user => {
                                     req.flash('success_msg', 'You are now registered, and can log in');
-                                    res.redirect('/users/login')
+                                    res.redirect('/users/login');
                                 })
                                 .catch(err => {
                                     req.flash('error_msg', 'You are not registered');
-                                    console.log(err);
                                 });
                         });
                     });
